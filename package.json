@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/madebymode-devs/mode-js.git"
+    "url": "git+https://github.com/madebymode/mode-js.git"
   },
   "author": "MODE <developers@madebymode.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/madebymode-devs/mode-js/issues"
+    "url": "https://github.com/madebymode/mode-js/issues"
   },
-  "homepage": "https://github.com/madebymode-devs/mode-js#readme"
+  "homepage": "https://github.com/madebymode/mode-js#readme"
 }
