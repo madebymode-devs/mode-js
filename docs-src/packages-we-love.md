@@ -1,13 +1,9 @@
-# lata
-
-Basic JavaScript helpers.
-
-## Documentation
-
-Examples, install notes, and upgrade guides are [here on GitHub](https://madebymode.github.io/lata).
-
-## Other JavaScript packages we ❤
-
+---
+title: Packages we ❤
+name: packages-we-love
+category: Packages we love
+hologram: true
+---
 - [axios](https://github.com/axios/axios#readme) (HTTP promises)
 - [delegate](https://github.com/zenorocha/delegate#readme)
 - [fontfaceobserver](https://github.com/bramstein/fontfaceobserver#readme)

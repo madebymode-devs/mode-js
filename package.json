@@ -1,5 +1,5 @@
 {
-  "name": "mode-js",
+  "name": "lata",
   "version": "0.0.2",
   "description": "",
   "main": "index.js",
@@ -8,12 +8,31 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/madebymode/mode-js.git"
+    "url": "git+https://github.com/madebymode/lata.git"
   },
   "author": "MODE <developers@madebymode.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/madebymode/mode-js/issues"
+    "url": "https://github.com/madebymode/lata/issues"
   },
-  "homepage": "https://github.com/madebymode/mode-js#readme"
+  "homepage": "https://github.com/madebymode/lata#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "core-js": "^2.5.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "highlight.js": "^9.12.0",
+    "minimis": "^0.1.5",
+    "normalize.css": "^7.0.0",
+    "npm-sass": "^2.2.1",
+    "stylelint-config-property-sort-order-smacss": "^2.0.0",
+    "uglifyjs-webpack-plugin": "^1.1.2",
+    "vinyl-named": "^1.1.0",
+    "webpack-stream": "^4.0.0"
+  }
 }

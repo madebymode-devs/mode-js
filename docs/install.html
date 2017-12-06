@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Install | lata</title>
+  <link rel="stylesheet" href="./css/docs.css?v=0.1.0">
+  <script src="https://use.typekit.net/bbx2hlj.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <script async src="./js/docs.js?v=0.1.0"></script>
+</head>
+<body id="top" class="c-layout  Install">
+  <header class="c-layout__wrapper" role="banner">
+    <h1 class="c-heading  c-heading--xl  /  u-text-align-center">
+      <a href="index.html" class="c-link--inherit">lata</a>
+    </h1>
+    <nav class="u-margin-bottom-xs  /  u-border-right-gray-1@lt-sidebar  /  u-white-space-nowrap@lt-sidebar  /  u-scroll@lt-sidebar" role="navigation">
+      <ul class="o-list  o-list--inline  /  c-navigation  /  u-margin-bottom-0  /  u-text-align-center">
+        <li class="o-list__item  /  c-copy  /  u-margin-right-xs"><a href="index.html">Examples</a></li>
+        <li class="o-list__item  /  c-copy  /  u-margin-right-xs"><a href="install.html">Install</a></li>
+        <li class="o-list__item  /  c-copy  /  u-margin-right-xs"><a href="packages_we_love.html">Packages we ❤</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <a href="#top" class="c-back-to-top"></a>
+
+  
+  <nav class="c-layout__sticky-sidebar  /  c-sticky-sidebar  /  u-text-align-center@lt-sidebar">
+    <ul class="o-list  o-list--inline@lt-sidebar  /  c-sticky-sidebar__nav">
+      
+      <li class="o-list__item  /  c-copy  /  u-margin-right-xs@lt-sidebar"><a href="#install">Install</a></li>
+      
+      <li class="o-list__item  /  c-copy  /  "><a href="#upgrade">Upgrade</a></li>
+      
+    </ul>
+  </nav>
+  
+
+  <main class="c-layout__wrapper" role="main">
+<h1 id="install" class="styleguide">Install</h1>
+
+<h2>1. Install with <a class="styleguide" href="https://docs.npmjs.com/getting-started/what-is-npm" title="https://docs.npmjs.com/getting-started/what-is-npm">npm</a></h2>
+<pre class="codeBlock"><code><span class="nx">npm</span> <span class="nx">i</span> <span class="nx">lata</span> <span class="o">--</span><span class="nx">save</span><span class="o">-</span><span class="nx">dev</span></code></pre>
+
+<h2>2. Copy starter kit</h2>
+<pre class="codeBlock"><code><span class="nx">mkdir</span> <span class="o">-</span><span class="nx">p</span> <span class="nx">resources</span><span class="o">/</span><span class="nx">assets</span><span class="o">/</span><span class="nx">js</span><span class="o">/</span>
+<span class="nx">rsync</span> <span class="o">-</span><span class="nx">avz</span> <span class="nx">node_modules</span><span class="o">/</span><span class="nx">lata</span><span class="o">/</span><span class="nx">starter</span><span class="o">-</span><span class="nx">kit</span><span class="o">/</span> <span class="nx">resources</span><span class="o">/</span><span class="nx">assets</span><span class="o">/</span><span class="nx">js</span><span class="o">/</span></code></pre>
+
+<h2>3. Build with <a class="styleguide" href="https://gulpjs.com/" title="https://gulpjs.com/">gulp</a></h2>
+<pre class="codeBlock"><code><span class="nx">npm</span> <span class="nx">i</span> <span class="nx">babel</span><span class="o">-</span><span class="nx">core</span> <span class="nx">babel</span><span class="o">-</span><span class="nx">loader</span> <span class="nx">babel</span><span class="o">-</span><span class="nx">preset</span><span class="o">-</span><span class="nx">env</span> <span class="nx">core</span><span class="o">-</span><span class="nx">js</span> <span class="nx">gulp</span> <span class="nx">uglifyjs</span><span class="o">-</span><span class="nx">webpack</span><span class="o">-</span><span class="nx">plugin</span> <span class="nx">vinyl</span><span class="o">-</span><span class="nx">named</span> <span class="nx">webpack</span><span class="o">-</span><span class="nx">stream</span> <span class="o">--</span><span class="nx">save</span><span class="o">-</span><span class="nx">dev</span></code></pre>
+
+<h3>Sample <code class="styleguide">gulpfile.js</code></h3>
+<pre class="codeBlock"><code><span class="kr">const</span> <span class="nx">gulp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp'</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">webpack</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'webpack-stream'</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">named</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'vinyl-named'</span><span class="p">);</span>
+
+<span class="c1">// JS</span>
+<span class="kr">const</span> <span class="nx">JS_CONFIG</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./webpack.config.js'</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">JS_SRC</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'./resources/assets/js/*.js'</span><span class="p">];</span>
+<span class="kr">const</span> <span class="nx">JS_DEST</span> <span class="o">=</span> <span class="s1">'./public/js'</span><span class="p">;</span>
+
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'scripts'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="nx">JS_SRC</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">named</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">webpack</span><span class="p">(</span><span class="nx">JS_CONFIG</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="nx">JS_DEST</span><span class="p">));</span>
+<span class="p">});</span>
+
+<span class="c1">// Default</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'default'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'scripts'</span><span class="p">]);</span></code></pre>
+
+<h3>Sample <code class="styleguide">webpack.config.js</code></h3>
+<pre class="codeBlock"><code><span class="kr">const</span> <span class="nx">webpack</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'webpack'</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">UglifyJsPlugin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'uglifyjs-webpack-plugin'</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">devtool</span><span class="p">:</span> <span class="s1">'source-map'</span><span class="p">,</span>
+  <span class="na">module</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">rules</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="na">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">\.</span><span class="sr">js$/</span><span class="p">,</span>
+        <span class="na">exclude</span><span class="p">:</span> <span class="sr">/</span><span class="se">(</span><span class="sr">node_modules|bower_components</span><span class="se">)</span><span class="sr">/</span><span class="p">,</span>
+        <span class="na">use</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">loader</span><span class="p">:</span> <span class="s1">'babel-loader'</span><span class="p">,</span>
+          <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">presets</span><span class="p">:</span> <span class="p">[</span><span class="s1">'babel-preset-env'</span><span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="na">plugins</span><span class="p">:</span> <span class="p">[</span>
+    <span class="k">new</span> <span class="nx">UglifyJsPlugin</span><span class="p">({</span>
+      <span class="na">sourceMap</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">})</span>
+  <span class="p">]</span>
+<span class="p">};</span></code></pre>
+
+<h2>4. <small class="optional">Optional</small> Keep clean code with <a class="styleguide" href="http://editorconfig.org/" title="http://editorconfig.org/">EditorConfig</a> and <a class="styleguide" href="http://jshint.com/install/" title="http://jshint.com/install/">JSHint</a></h2>
+<pre class="codeBlock"><code><span class="nx">npm</span> <span class="nx">i</span> <span class="o">-</span><span class="nx">g</span> <span class="nx">jshint</span>
+<span class="nx">cp</span> <span class="nx">node_modules</span><span class="o">/</span><span class="nx">lata</span><span class="o">/</span><span class="p">.</span><span class="nx">editorconfig</span> <span class="p">.</span><span class="nx">editorconfig</span>
+<span class="nx">cp</span> <span class="nx">node_modules</span><span class="o">/</span><span class="nx">lata</span><span class="o">/</span><span class="p">.</span><span class="nx">jshintrc</span> <span class="p">.</span><span class="nx">jshintrc</span></code></pre>
+
+<h1 id="upgrade" class="styleguide">Upgrade</h1>
+
+<h2>Migrating from <a class="styleguide" href="https://github.com/madebymode/mode-front-end/tree/v2.11.1" title="https://github.com/madebymode/mode-front-end/tree/v2.11.1">mode-front-end 2.11.1</a> to lata 0.1.x</h2>
+
+<h3><code class="styleguide">array/filter</code> → <a class="styleguide" href="https://github.com/zloirock/core-js#ecmascript-6-array" title="https://github.com/zloirock/core-js#ecmascript-6-array"><code class="styleguide">core-js/library/fn/array/filter</code></a></h3>
+<p class="styleguide">Before:</p><pre class="codeBlock"><code><span class="kr">const</span> <span class="nx">filter</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'mode-front-end/resources/assets/js/array/filter'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">filter</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">1</span><span class="p">));</span> <span class="c1">// [1, 3]</span></code></pre>
+<p class="styleguide">After:</p><pre class="codeBlock"><code><span class="c1">// Without overriding global Array.prototype</span>
+<span class="kr">import</span> <span class="nx">filter</span> <span class="nx">from</span> <span class="s1">'core-js/library/fn/array/filter'</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">filter</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">1</span><span class="p">));</span> <span class="c1">// [1, 3]</span>
+
+<span class="c1">// Overriding global Array.prototype</span>
+<span class="kr">import</span> <span class="s1">'core-js/fn/array/filter'</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">filter</span><span class="p">(</span><span class="nx">a</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">1</span><span class="p">));</span> <span class="c1">// [1, 3]</span></code></pre>
+
+<h3><code class="styleguide">array/inArray</code> → <a class="styleguide" href="https://github.com/zloirock/core-js#ecmascript-6-array" title="https://github.com/zloirock/core-js#ecmascript-6-array"><code class="styleguide">core-js/library/fn/array/index-of</code></a></h3>
+<p class="styleguide">Before:</p><pre class="codeBlock"><code><span class="kr">const</span> <span class="nx">inArray</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'mode-front-end/resources/assets/js/array/inArray'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">inArray</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span> <span class="nx">inArray</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">0</span><span class="p">));</span> <span class="c1">// true, false</span></code></pre>
+<p class="styleguide">After:</p><pre class="codeBlock"><code><span class="c1">// Without overriding global Array.prototype</span>
+<span class="kr">import</span> <span class="nx">indexOf</span> <span class="nx">from</span> <span class="s1">'core-js/library/fn/array/index-of'</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">inArray</span> <span class="o">=</span> <span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">val</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">inArray</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span> <span class="nx">inArray</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">0</span><span class="p">));</span> <span class="c1">// true, false</span>
+
+<span class="c1">// Overriding global Array.prototype</span>
+<span class="kr">import</span> <span class="s1">'core-js/fn/array/index-of'</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">indexOf</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">indexOf</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// true, false</span></code></pre>
+
+<h3><code class="styleguide">array/isArray</code> → <a class="styleguide" href="https://github.com/zloirock/core-js#ecmascript-6-array" title="https://github.com/zloirock/core-js#ecmascript-6-array"><code class="styleguide">core-js/library/fn/array/is-array</code></a></h3>
+<p class="styleguide">Before:</p><pre class="codeBlock"><code><span class="kr">const</span> <span class="nx">isArray</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'mode-front-end/resources/assets/js/array/isArray'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isArray</span><span class="p">([]),</span> <span class="nx">isArray</span><span class="p">({}));</span> <span class="c1">// true, false</span></code></pre>
+<p class="styleguide">After:</p><pre class="codeBlock"><code><span class="c1">// Without overriding global Array.prototype</span>
+<span class="kr">import</span> <span class="nx">isArray</span> <span class="nx">from</span> <span class="s1">'core-js/library/fn/array/is-array'</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">isArray</span><span class="p">([]),</span> <span class="nx">isArray</span><span class="p">({}));</span> <span class="c1">// true, false</span>
+
+<span class="c1">// Overriding global Array.prototype</span>
+<span class="kr">import</span> <span class="s1">'core-js/fn/array/is-array'</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">([]),</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">({}));</span> <span class="c1">// true, false</span></code></pre>
+
+<h3><code class="styleguide">array/map</code> → <a class="styleguide" href="https://github.com/zloirock/core-js#ecmascript-6-array" title="https://github.com/zloirock/core-js#ecmascript-6-array"><code class="styleguide">core-js/library/fn/array/map</code></a></h3>
+<p class="styleguide">Before:</p><pre class="codeBlock"><code><span class="kr">const</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'mode-front-end/resources/assets/js/array/map'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="nx">n</span> <span class="o">=&gt;</span> <span class="nx">n</span> <span class="o">*</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// [2, 4, 6]</span></code></pre>
+<p class="styleguide">After:</p><pre class="codeBlock"><code><span class="c1">// Without overriding global Array.prototype</span>
+<span class="kr">import</span> <span class="nx">map</span> <span class="nx">from</span> <span class="s1">'core-js/library/fn/array/map'</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="nx">n</span> <span class="o">=&gt;</span> <span class="nx">n</span> <span class="o">*</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// [2, 4, 6]</span>
+
+<span class="c1">// Overriding global Array.prototype</span>
+<span class="kr">import</span> <span class="s1">'core-js/fn/array/map'</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span><span class="nx">n</span> <span class="o">=&gt;</span> <span class="nx">n</span> <span class="o">*</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">// [2, 4, 6]</span></code></pre>
+
+<h3><code class="styleguide">array/mapObj</code> → <a class="styleguide" href="https://github.com/zloirock/core-js#ecmascript-7-proposals" title="https://github.com/zloirock/core-js#ecmascript-7-proposals"><code class="styleguide">core-js/library/fn/object/entries</code></a></h3>
+<p class="styleguide">Before:</p><pre class="codeBlock"><code><span class="kr">const</span> <span class="nx">mapObj</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'mode-front-end/resources/assets/js/array/mapObj'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mapObj</span><span class="p">({</span> <span class="na">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">c</span><span class="p">:</span> <span class="mi">3</span> <span class="p">},</span> <span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">value</span><span class="p">));</span> <span class="c1">// [1, 2, 3]</span></code></pre>
+<p class="styleguide">After:</p><pre class="codeBlock"><code><span class="c1">// Without overriding global Array.prototype</span>
+<span class="kr">import</span> <span class="nx">map</span> <span class="nx">from</span> <span class="s1">'core-js/library/fn/array/map'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">entries</span> <span class="nx">from</span> <span class="s1">'core-js/library/fn/object/entries'</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">mapObj</span> <span class="o">=</span> <span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">fn</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">map</span><span class="p">(</span><span class="nx">entries</span><span class="p">(</span><span class="nx">obj</span><span class="p">),</span> <span class="p">([</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="nx">fn</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">key</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mapObj</span><span class="p">({</span> <span class="na">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">c</span><span class="p">:</span> <span class="mi">3</span> <span class="p">},</span> <span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">value</span><span class="p">));</span> <span class="c1">// [1, 2, 3]</span>
+
+<span class="c1">// Overriding global Array.prototype</span>
+<span class="kr">import</span> <span class="s1">'core-js/fn/array/map'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="s1">'core-js/fn/object/entries'</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">({</span> <span class="na">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">c</span><span class="p">:</span> <span class="mi">3</span> <span class="p">}).</span><span class="nx">map</span><span class="p">(([</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="nx">value</span><span class="p">));</span> <span class="c1">// [1, 2, 3]</span></code></pre>
+
+<h3><code class="styleguide">array/reduce</code> → <a class="styleguide" href="https://github.com/zloirock/core-js#ecmascript-6-array" title="https://github.com/zloirock/core-js#ecmascript-6-array"><code class="styleguide">core-js/library/fn/array/reduce</code></a></h3>
+<p class="styleguide">Before:</p><pre class="codeBlock"><code><span class="kr">const</span> <span class="nx">reduce</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'mode-front-end/resources/assets/js/array/reduce'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">reduce</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span> <span class="c1">// 6</span></code></pre>
+<p class="styleguide">After:</p><pre class="codeBlock"><code><span class="c1">// Without overriding global Array.prototype</span>
+<span class="kr">import</span> <span class="nx">reduce</span> <span class="nx">from</span> <span class="s1">'core-js/library/fn/array/reduce'</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">reduce</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span> <span class="c1">// 6</span>
+
+<span class="c1">// Overriding global Array.prototype</span>
+<span class="kr">import</span> <span class="s1">'core-js/fn/array/reduce'</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span> <span class="c1">// 6</span></code></pre>
+
+<h3><code class="styleguide">object/extend</code> → <a class="styleguide" href="https://github.com/zloirock/core-js#ecmascript-6-object" title="https://github.com/zloirock/core-js#ecmascript-6-object"><code class="styleguide">core-js/library/fn/object/assign</code></a></h3>
+<p class="styleguide">Before:</p><pre class="codeBlock"><code><span class="kr">const</span> <span class="nx">extend</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'mode-front-end/resources/assets/js/object/extend'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">extend</span><span class="p">({</span> <span class="na">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="mi">2</span> <span class="p">},</span> <span class="p">{</span> <span class="na">c</span><span class="p">:</span> <span class="mi">3</span> <span class="p">}));</span> <span class="c1">// { a: 1, b: 2, c: 3 }</span></code></pre>
+<p class="styleguide">After:</p><pre class="codeBlock"><code><span class="c1">// Without overriding global Array.prototype</span>
+<span class="kr">import</span> <span class="nx">extend</span> <span class="nx">from</span> <span class="s1">'core-js/library/fn/object/assign'</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">extend</span><span class="p">({</span> <span class="na">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="mi">2</span> <span class="p">},</span> <span class="p">{</span> <span class="na">c</span><span class="p">:</span> <span class="mi">3</span> <span class="p">}));</span> <span class="c1">// { a: 1, b: 2, c: 3 }</span>
+
+<span class="c1">// Overriding global Array.prototype</span>
+<span class="kr">import</span> <span class="s1">'core-js/fn/object/assign'</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({</span> <span class="na">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="mi">2</span> <span class="p">},</span> <span class="p">{</span> <span class="na">c</span><span class="p">:</span> <span class="mi">3</span> <span class="p">}));</span> <span class="c1">// { a: 1, b: 2, c: 3 }</span></code></pre>
+    <footer class="u-margin-top-xl">
+      <p class="c-copy">This documentation was generated using <a href="https://trulia.github.io/hologram/" class="c-link">Hologram</a>.
+    </footer>
+  </main>
+</body>
+</html>

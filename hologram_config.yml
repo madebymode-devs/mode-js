@@ -1,0 +1,20 @@
+source:
+  - ./docs-src
+  - ./animation
+  - ./browserDetect
+  - ./dom
+  - ./event
+  - ./time
+  - ./typography
+destination: ./docs
+documentation_assets: ./hologram
+code_example_templates: ./hologram-templates
+code_example_renderers: ./hologram-renderers
+index: examples
+ignore_paths:
+  - ./docs-src/sass
+nav_level: all
+custom_extensions:
+  - '.md'
+  - '.js'
+exit_on_warnings: false

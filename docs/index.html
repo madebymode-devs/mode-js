@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Examples | lata</title>
+  <link rel="stylesheet" href="./css/docs.css?v=0.1.0">
+  <script src="https://use.typekit.net/bbx2hlj.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <script async src="./js/docs.js?v=0.1.0"></script>
+</head>
+<body id="top" class="c-layout  Examples">
+  <header class="c-layout__wrapper" role="banner">
+    <h1 class="c-heading  c-heading--xl  /  u-text-align-center">
+      <a href="index.html" class="c-link--inherit">lata</a>
+    </h1>
+    <nav class="u-margin-bottom-xs  /  u-border-right-gray-1@lt-sidebar  /  u-white-space-nowrap@lt-sidebar  /  u-scroll@lt-sidebar" role="navigation">
+      <ul class="o-list  o-list--inline  /  c-navigation  /  u-margin-bottom-0  /  u-text-align-center">
+        <li class="o-list__item  /  c-copy  /  u-margin-right-xs"><a href="index.html">Examples</a></li>
+        <li class="o-list__item  /  c-copy  /  u-margin-right-xs"><a href="install.html">Install</a></li>
+        <li class="o-list__item  /  c-copy  /  u-margin-right-xs"><a href="packages_we_love.html">Packages we ❤</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <a href="#top" class="c-back-to-top"></a>
+
+  
+  <nav class="c-layout__sticky-sidebar  /  c-sticky-sidebar  /  u-text-align-center@lt-sidebar">
+    <ul class="o-list  o-list--inline@lt-sidebar  /  c-sticky-sidebar__nav">
+      
+      <li class="o-list__item  /  c-copy  /  u-margin-right-xs@lt-sidebar"><a href="#1-examples">Examples</a></li>
+      
+      <li class="o-list__item  /  c-copy  /  "><a href="#2-core-js">Core JS</a></li>
+      
+    </ul>
+  </nav>
+  
+
+  <main class="c-layout__wrapper" role="main">
+<h1 id="1-examples" class="styleguide">Examples</h1>
+
+<h1 id="2-core-js" class="styleguide">Core JS</h1>
+
+<h2><code class="styleguide">Array.filter</code></h2>
+<pre class="codeBlock"><code><span class="kr">import</span> <span class="s1">'core-js/fn/array/filter'</span><span class="p">;</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">filter</span><span class="p">(</span><span class="nx">a</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">1</span><span class="p">);</span>
+<span class="c1">// [1, 3]</span></code></pre>
+
+<h2><code class="styleguide">Array.indexOf</code></h2>
+<pre class="codeBlock"><code><span class="kr">import</span> <span class="s1">'core-js/fn/array/index-of'</span><span class="p">;</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">indexOf</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">indexOf</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="c1">// true, false</span></code></pre>
+
+<h2><code class="styleguide">Array.isArray</code></h2>
+<pre class="codeBlock"><code><span class="kr">import</span> <span class="s1">'core-js/fn/array/is-array'</span><span class="p">;</span>
+<span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">([]),</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">({});</span>
+<span class="c1">// true, false</span></code></pre>
+
+<h2><code class="styleguide">Array.map</code></h2>
+<pre class="codeBlock"><code><span class="kr">import</span> <span class="s1">'core-js/fn/array/map'</span><span class="p">;</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span><span class="nx">n</span> <span class="o">=&gt;</span> <span class="nx">n</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
+<span class="c1">// [2, 4, 6]</span></code></pre>
+
+<h2><code class="styleguide">Array.reduce</code></h2>
+<pre class="codeBlock"><code><span class="kr">import</span> <span class="s1">'core-js/fn/array/reduce'</span><span class="p">;</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+<span class="c1">// 6</span></code></pre>
+
+<h2><code class="styleguide">Object.assign</code></h2>
+<pre class="codeBlock"><code><span class="kr">import</span> <span class="s1">'core-js/fn/object/assign'</span><span class="p">;</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({</span> <span class="na">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="mi">2</span> <span class="p">},</span> <span class="p">{</span> <span class="na">c</span><span class="p">:</span> <span class="mi">3</span> <span class="p">});</span>
+<span class="c1">// { a: 1, b: 2, c: 3 }</span></code></pre>
+
+<h2><code class="styleguide">Object.entries</code></h2>
+<pre class="codeBlock"><code><span class="kr">import</span> <span class="s1">'core-js/fn/array/map'</span><span class="p">;</span>
+<span class="kr">import</span> <span class="s1">'core-js/fn/object/entries'</span><span class="p">;</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">({</span> <span class="na">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">c</span><span class="p">:</span> <span class="mi">3</span> <span class="p">}).</span><span class="nx">map</span><span class="p">(([</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="nx">value</span><span class="p">);</span>
+<span class="c1">// [1, 2, 3]</span></code></pre>
+    <footer class="u-margin-top-xl">
+      <p class="c-copy">This documentation was generated using <a href="https://trulia.github.io/hologram/" class="c-link">Hologram</a>.
+    </footer>
+  </main>
+</body>
+</html>

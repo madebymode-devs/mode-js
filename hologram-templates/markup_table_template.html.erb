@@ -1,0 +1,18 @@
+<div class="codeTable">
+  <table>
+    <tbody>
+      <% examples.each do |example| %>
+        <tr>
+          <th>
+            <div class="exampleOutput">
+              <%= example.rendered_example %>
+            </div>
+          </th>
+          <td>
+            <pre class="codeBlock"><code class="html"><%= example.code_example %></code></pre>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,16 @@
+@include o-list();
+@include o-list__item();
+
+@include o-list--inline();
+
+
+
+// ------------------------------
+// Responsive
+// ------------------------------
+
+// Max-width
+// @include o-list--inline('lt-md');
+
+// Min-width
+// @include o-list--inline('md');

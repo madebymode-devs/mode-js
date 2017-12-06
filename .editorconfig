@@ -1,0 +1,13 @@
+# editorconfig.org
+root = true
+
+[*]
+indent_style = space
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.js]
+indent_size = 2
+
+[*.{erb,html,md,css,scss,sass}]
+indent_size = 2
