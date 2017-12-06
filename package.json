@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/madebymode/lata/issues"
   },
-  "homepage": "https://github.com/madebymode/lata#readme",
+  "homepage": "https://madebymode.github.io/lata/",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
