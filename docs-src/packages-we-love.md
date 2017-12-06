@@ -5,6 +5,7 @@ category: Packages we love
 hologram: true
 ---
 - [axios](https://github.com/axios/axios#readme) (HTTP promises)
+- [css-element-queries](https://github.com/marcj/css-element-queries#readme) (especially `src/ResizeSensor.js`)
 - [delegate](https://github.com/zenorocha/delegate#readme)
 - [fontfaceobserver](https://github.com/bramstein/fontfaceobserver#readme)
 - [lazysizes](https://github.com/aFarkas/lazysizes#readme)
